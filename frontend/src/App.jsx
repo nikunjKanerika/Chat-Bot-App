@@ -85,7 +85,7 @@ const App = () => {
           createNewChat={createNewChat}
           minimiseChatList={minimiseChatList}
           setChats={setChats}
-          setSelectedChatId={setSelectedChatId}
+        setSelectedChatId={selectedChatId}
           
         />
         : 
