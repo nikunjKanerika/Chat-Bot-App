@@ -32,32 +32,11 @@ const App = () => {
 
   };
 
-  // const getMessages = async () =>{
-   
-    
-  // }
 
   //Selects the chat and get all the messages of that particular chat
   const selectChat = async (id) => {
-    // console.log(id);
+
     setSelectedChatId(id);
-    
-    // const response = await getChatMessages(id);
-    // if (response?.ok) {
-    // const data = await response.json();
-
-    // const updatedData = data.map(item => ({
-    //   ...item,
-    //   isLoading: false
-    // }));
-
-    // console.log(updatedData);
-    // setChatMessages(updatedData);
-    // } else {
-    //   console.error('Error in fetching messages');
-    // }
-
-    
 
   };
 
@@ -106,6 +85,7 @@ const App = () => {
           createNewChat={createNewChat}
           minimiseChatList={minimiseChatList}
           setChats={setChats}
+          setSelectedChatId={setSelectedChatId}
           
         />
         : 

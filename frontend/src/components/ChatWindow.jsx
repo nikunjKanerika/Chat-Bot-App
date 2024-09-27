@@ -72,12 +72,12 @@ const ChatWindow = ({ chat, getChatbotResponse,selectedChatId }) => {
 
         setChatMessages(updatedMessages);
     });
-    // console.log(selectedChatId,userMessage.user,response);
+   
         const res = await saveMessages(selectedChatId,text,response);
-        const data = await res.json();
+        // const data = await res.json();
       };
 
-
+      //Scrolling to the recent chat
     const handleSendMessage = () => {
       if (inputText.trim() !== '') {
         setDisableSend(true)

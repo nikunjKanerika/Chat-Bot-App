@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { EllipsisHorizontalIcon } from '@heroicons/react/16/solid';
 import { getAllChats } from '../service/api';
 import {ReactComponent as Logo} from '../assets/kanerika_main.svg'
-const ChatList = ({ chats, setChats,selectedChatId,minimiseChatList, selectChat, deleteChat, updateChatTitle, createNewChat }) => {
+const ChatList = ({ chats, setChats,setSelectedChatId,selectedChatId,minimiseChatList, selectChat, deleteChat, updateChatTitle, createNewChat }) => {
   const [editTitleId, setEditTitleId] = useState(null); //For editing the selected chat id
   const [newTitle, setNewTitle] = useState('');  //For a new title of a chat
   const [openMenuId, setOpenMenuId] = useState(null); // To track the open dropdown for each chat
@@ -30,14 +30,10 @@ const ChatList = ({ chats, setChats,selectedChatId,minimiseChatList, selectChat,
         if (response.ok) {
           const chats = await response.json();
     
-          const updatedChats = chats.map(chat => ({
-            ...chat,
-            messages: [],
-          }));
-  
-          setChats(updatedChats);
+          setSelectedChatId(chats[0].id);
+          setChats(chats);
         } else {
-        //   console.error('No chats found');
+          console.error('No chats found');
         }
       } catch (error) {
         console.error('Error fetching chats:', error);
